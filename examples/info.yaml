@@ -1,10 +1,9 @@
 swagger: 2.0
-host: localhost:8080
 info:
   title: Test Title
   description: A test API
   termsOfService: Example terms
-  contact: 
+  contact:
     name: John Doe
     url: https://johndoe.com
     email: john@doe.com
@@ -12,3 +11,25 @@ info:
     name: MIT
     url: https://mit.com
   version: 1.0
+host: localhost:8080
+basePath: /api/
+schemes:
+  - http
+  - https
+  - ws
+consumes:
+  - application/json
+  - text/plain; charset=utf-8
+produces:
+  - application/json
+tags:
+  - name: Tag1
+    description: Tag1 desc
+    externalDocs:
+      description: Tag1 extern docs desc
+      url: https://tag1.com
+  - name: Tag2
+    description: Tag2 desc
+externalDocs:
+  description: External docs desc
+  url: https://swagger.io
