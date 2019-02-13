@@ -4,15 +4,20 @@
 
 use std::fs::File;
 
-mod schema_v2;
+pub mod schema_v2;
+
 use schema_v2::Spec;
 
 /// Deserialize an OpenAPI spec given the file path.
-/// 
+///
 /// # Example
 /// ```
+/// use openapi_parser::deserialize;
+///
 /// fn main() {
-///     let spec: Spec = deserialize("examples/minimal_info.yaml");
+///     let spec = deserialize("examples/minimal_info.yaml");
+///
+///     // use fields on the schema_v2::Spec struct
 /// }
 /// ```
 pub fn deserialize<P>(path: P) -> Result<Spec, String>
