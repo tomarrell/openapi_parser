@@ -1,0 +1,14 @@
+swagger: 2.0
+host: localhost:8080
+info:
+  title: Test Title
+  description: A test API
+  termsOfService: Example terms
+  contact: 
+    name: John Doe
+    url: https://johndoe.com
+    email: john@doe.com
+  license:
+    name: MIT
+    url: https://mit.com
+  version: 1.0
