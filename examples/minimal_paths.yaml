@@ -1,0 +1,30 @@
+swagger: 2.0
+info:
+  title: Test Title
+  version: 1.0
+paths:
+  '/campaigns':
+    get:
+      tags:
+        - fetch
+        - data
+        - rest
+      summary: A short summary of this operation
+      description: A short description of this operation
+      externalDocs:
+        description: External docs desc
+        url: https://swagger.io
+      operationId: getData
+      consumes:
+        - application/json
+        - text/plain; charset=utf-8
+      produces:
+        - application/json
+      parameters:
+        - name: param1
+          in: query
+          description: Description of param1
+          required: true
+          type: string
+          format: email
+      responses: {}

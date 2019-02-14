@@ -22,6 +22,7 @@ consumes:
   - text/plain; charset=utf-8
 produces:
   - application/json
+paths: {}
 tags:
   - name: Tag1
     description: Tag1 desc

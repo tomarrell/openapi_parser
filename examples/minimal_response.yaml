@@ -1,0 +1,16 @@
+swagger: 2.0
+info:
+  title: Test Title
+  version: 1.0
+paths:
+  '/campaigns':
+    get:
+      responses:
+        200:
+          description: Get a list of campaigns
+          headers:
+            X-Rate-Limit-Limit:
+              type: integer
+              description: The number of allowed requests in a period
+              minimum: 0
+              maximum: 300 
