@@ -124,7 +124,7 @@ pub struct Schema {
     #[serde(rename = "$ref")]
     ref_path: Option<String>,
     #[serde(rename = "type")]
-    schema_type: String,
+    schema_type: Option<String>,
     format: Option<String>,
     title: Option<String>,
     description: Option<String>,
@@ -142,7 +142,7 @@ pub struct Schema {
     unique_items: Option<bool>,
     max_properties: Option<i32>,
     min_properties: Option<i32>,
-    required: Option<bool>,
+    required: Option<Vec<String>>,
     // enum: TODO
     items: Option<Box<Schema>>,
     all_of: Option<Vec<Schema>>,
@@ -361,11 +361,38 @@ mod tests {
             ..Default::default()
         });
 
+        let mut properties = BTreeMap::new();
+        properties.insert("name".to_string(), Schema {
+            schema_type: Some("string".to_string()),
+            ..Default::default()
+        });
+        properties.insert("address".to_string(), Schema {
+            schema_type: Some("string".to_string()),
+            ..Default::default()
+        });
+        properties.insert("age".to_string(), Schema {
+            schema_type: Some("integer".to_string()),
+            minimum: Some(0),
+            ..Default::default()
+        });
+        properties.insert("details".to_string(), Schema {
+            ref_path: Some("#/definitions/Details".to_string()),
+            ..Default::default()
+        });
+
+        let schema = Schema {
+            schema_type: Some("object".to_string()),
+            required: Some(vec!["name".to_string()]),
+            properties: Some(properties),
+            ..Default::default()
+        };
+
         assert_eq!(
             result,
             Response {
                 description: "Get a list of campaigns".to_string(),
                 headers: Some(headers),
+                schema: Some(schema),
                 ..Default::default()
             }
         )

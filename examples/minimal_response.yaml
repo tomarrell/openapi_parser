@@ -14,3 +14,19 @@ paths:
               description: The number of allowed requests in a period
               minimum: 0
               maximum: 300 
+          schema:
+            type: object
+            required:
+              - name
+            properties:
+              name:
+                type: string
+              address:
+                type: string
+              age:
+                type: integer
+                minimum: 0
+              details:
+                $ref: '#/definitions/Details'
+
+
